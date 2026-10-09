@@ -2,7 +2,7 @@
 
 ## Purpose
 
-These rules govern how AI agents (Claude, Cursor, Copilot, etc.) interact with the StepFi codebase. They exist to prevent context drift, architectural violations, and code breaks — especially as the project opens to open-source contributors and multiple AI sessions.
+These rules govern how AI agents (Claude, Cursor, Copilot, etc.) interact with the Lendify codebase. They exist to prevent context drift, architectural violations, and code breaks — especially as the project opens to open-source contributors and multiple AI sessions.
 
 ---
 
@@ -14,12 +14,12 @@ The six context files are the single source of truth for this project:
 
 | File | What it defines |
 |---|---|
-| `project-overview.md` | What StepFi is, what it does, what's in scope |
+| `project-overview.md` | What Lendify is, what it does, what's in scope |
 | `architecture-context.md` | Stack, system boundaries, storage model, invariants |
 | `code-standards.md` | Naming, patterns, what not to do |
 | `progress-tracker.md` | Current state, what's done, what's next, open questions |
 | `ai-workflow-rules.md` | This file — how to work |
-| `ui-context.md` | StepFi-App design system, colors, component patterns |
+| `ui-context.md` | Lendify-App design system, colors, component patterns |
 
 Read all relevant context files before starting any implementation task.
 
@@ -58,7 +58,7 @@ If a change cannot be verified end to end with a single `npm run build` or `carg
 
 ## System Boundary Rules
 
-### StepFi-API
+### Lendify-API
 - All Stellar SDK / Soroban RPC calls must stay inside `src/blockchain/`.
 - All Supabase calls in modules must go through `SupabaseService` or a repository — never raw client calls.
 - No business logic in controllers — controllers validate input and delegate to services.
@@ -66,7 +66,7 @@ If a change cannot be verified end to end with a single `npm run build` or `carg
 - Every new module must be registered in `app.module.ts`.
 - Every new module must have `@ApiTags`, `@ApiOperation`, and `@ApiResponse` on all endpoints.
 
-### StepFi-Contracts
+### Lendify-Contracts
 - All storage operations go through `storage.rs`.
 - All events go through `events.rs`.
 - Every mutating function starts with `require_auth()`.
@@ -74,7 +74,7 @@ If a change cannot be verified end to end with a single `npm run build` or `carg
 - Every new contract must have `get_version()` and `upgrade()`.
 - Tests use `soroban_sdk::Env::default()` and `mock_all_auths()`.
 
-### StepFi-App
+### Lendify-App
 - No API calls in screen files or components — use hooks.
 - No global state mutations outside Zustand stores.
 - No JWT token handling outside `services/auth.service.ts` and `stores/auth.store.ts`.
@@ -95,16 +95,16 @@ If a change cannot be verified end to end with a single `npm run build` or `carg
 
 Do not modify these files unless explicitly instructed:
 
-### StepFi-API
+### Lendify-API
 - `src/common/guards/jwt-auth.guard.ts` — all protected routes depend on this
 - `src/common/decorators/current-user.decorator.ts` — used across all protected controllers
 - `src/blockchain/soroban/soroban.service.ts` — foundation for all contract clients
 - `src/database/supabase.client.ts` — singleton pattern must not be broken
 
-### StepFi-Contracts
+### Lendify-Contracts
 - Any contract that is already deployed to testnet — do not modify without incrementing version and deploying an upgrade
 
-### StepFi-App
+### Lendify-App
 - `constants/colors.ts` — token definitions used across all components
 - `stores/auth.store.ts` — auth state used across all screens
 
@@ -114,12 +114,12 @@ Do not modify these files unless explicitly instructed:
 
 Before marking any unit as complete:
 
-- [ ] `npm run build` passes with zero TypeScript errors (StepFi-API)
-- [ ] `cargo build` passes with zero Rust errors (StepFi-Contracts)
-- [ ] New module is registered in `app.module.ts` (StepFi-API)
-- [ ] New migration file exists for any new table (StepFi-API)
-- [ ] Swagger decorators exist on all new endpoints (StepFi-API)
-- [ ] TTL extension is called on all new persistent storage writes (StepFi-Contracts)
+- [ ] `npm run build` passes with zero TypeScript errors (Lendify-API)
+- [ ] `cargo build` passes with zero Rust errors (Lendify-Contracts)
+- [ ] New module is registered in `app.module.ts` (Lendify-API)
+- [ ] New migration file exists for any new table (Lendify-API)
+- [ ] Swagger decorators exist on all new endpoints (Lendify-API)
+- [ ] TTL extension is called on all new persistent storage writes (Lendify-Contracts)
 - [ ] No invariant from `architecture-context.md` was violated
 - [ ] `progress-tracker.md` is updated to reflect completed work
 
@@ -149,6 +149,6 @@ Progress state must reflect the actual implementation — not the intended state
 - Skip `require_auth()` in Soroban contract functions
 - Skip `extend_ttl()` after persistent storage writes
 - Store raw refresh tokens (must be SHA-256 hashed)
-- Add hardcoded hex colors in StepFi-App components
+- Add hardcoded hex colors in Lendify-App components
 - Modify protected foundation files without explicit instruction
 - Mark a unit complete without verifying the build passes

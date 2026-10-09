@@ -1,6 +1,6 @@
 # Database Schema
 
-This document describes the PostgreSQL database schema used by the StepFi API via Supabase.
+This document describes the PostgreSQL database schema used by the Lendify API via Supabase.
 
 ## Overview
 

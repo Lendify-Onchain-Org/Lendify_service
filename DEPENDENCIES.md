@@ -1,4 +1,4 @@
-# Dependencies Audit — StepFi-API
+# Dependencies Audit — Lendify-API
 
 Last audited: 2026-05-05
 Auditor: maintainer
@@ -231,7 +231,7 @@ Update all imports from `stellar-sdk` to `@stellar/stellar-sdk`.
 
 ## Rules for Adding New Dependencies
 
-Before adding any new package to StepFi-API:
+Before adding any new package to Lendify-API:
 
 1. **Justify it** — explain in the PR why existing packages cannot solve the problem
 2. **Check activity** — the package must have a commit within the last 12 months

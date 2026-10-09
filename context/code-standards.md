@@ -1,4 +1,4 @@
-# Code Standards — StepFi-API
+# Code Standards — Lendify-API
 
 ## TypeScript
 

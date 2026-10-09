@@ -1,11 +1,11 @@
 # API Endpoints Reference
 
-Complete reference for all StepFi API endpoints. See [ROADMAP.md](../../ROADMAP.md) for implementation status.
+Complete reference for all Lendify API endpoints. See [ROADMAP.md](../../ROADMAP.md) for implementation status.
 
 ## Base URL
 
 - **Development**: `http://localhost:3000`
-- **Production**: `https://api.stepfi.io` *(to be deployed)*
+- **Production**: `https://api.lendify.io` *(to be deployed)*
 
 ## Authentication
 
@@ -21,7 +21,7 @@ Authorization: Bearer <access_token>
 
 ### POST /auth/nonce
 
-Generate a nonce and the canonical StepFi challenge message for wallet signature authentication.
+Generate a nonce and the canonical Lendify challenge message for wallet signature authentication.
 
 **Request**:
 ```json
@@ -35,12 +35,12 @@ Generate a nonce and the canonical StepFi challenge message for wallet signature
 {
   "nonce": "a1b2c3d4e5f67890abcdef1234567890a1b2c3d4e5f67890abcdef1234567890",
   "expiresAt": "2026-02-13T10:05:00.000Z",
-  "message": "{\n  \"domain\": \"stepfi-api.onrender.com\",\n  \"address\": \"GABC...XYZ\",\n  \"statement\": \"StepFi requests that you sign this message to authenticate your wallet. This message does not trigger any blockchain transaction.\",\n  \"uri\": \"https://stepfi-api.onrender.com/api/v1/auth/verify\",\n  \"version\": \"1.0.0\",\n  \"nonce\": \"a1b2c3d4e5f67890abcdef1234567890a1b2c3d4e5f67890abcdef1234567890\",\n  \"issuedAt\": \"2026-02-13T10:00:00.000Z\",\n  \"expirationTime\": \"2026-02-13T10:05:00.000Z\",\n  \"networkPassphrase\": \"Test SDF Network ; September 2015\"\n}"
+  "message": "{\n  \"domain\": \"lendify-api.onrender.com\",\n  \"address\": \"GABC...XYZ\",\n  \"statement\": \"Lendify requests that you sign this message to authenticate your wallet. This message does not trigger any blockchain transaction.\",\n  \"uri\": \"https://lendify-api.onrender.com/api/v1/auth/verify\",\n  \"version\": \"1.0.0\",\n  \"nonce\": \"a1b2c3d4e5f67890abcdef1234567890a1b2c3d4e5f67890abcdef1234567890\",\n  \"issuedAt\": \"2026-02-13T10:00:00.000Z\",\n  \"expirationTime\": \"2026-02-13T10:05:00.000Z\",\n  \"networkPassphrase\": \"Test SDF Network ; September 2015\"\n}"
 }
 ```
 
 The `message` field is the exact text the wallet must sign. It binds the
-signature to StepFi's domain, URI, wallet address, nonce and network, so a
+signature to Lendify's domain, URI, wallet address, nonce and network, so a
 signature captured from any other context cannot be replayed here. A SHA-256
 digest of this message is stored on the nonce row, and verification only ever
 accepts a signature over a message whose digest matches the stored challenge.
@@ -61,7 +61,7 @@ Verify wallet signature and receive JWT tokens.
   "signature": "base64-ed25519-signature",
   "nonce": "a1b2c3d4e5f67890abcdef1234567890a1b2c3d4e5f67890abcdef1234567890",
   "signatureType": "envelope",
-  "message": "{\n  \"domain\": \"stepfi-api.onrender.com\",\n  ... same envelope returned by /auth/nonce ...\n}"
+  "message": "{\n  \"domain\": \"lendify-api.onrender.com\",\n  ... same envelope returned by /auth/nonce ...\n}"
 }
 ```
 

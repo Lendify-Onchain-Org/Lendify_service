@@ -1,8 +1,8 @@
-# UI Context — StepFi-App
+# UI Context — Lendify-App
 
 ## Design Philosophy
 
-StepFi-App targets learners and interns in emerging markets — many of whom are new to DeFi and crypto. The UI must be:
+Lendify-App targets learners and interns in emerging markets — many of whom are new to DeFi and crypto. The UI must be:
 
 - **Simple over clever** — every screen is immediately understandable without a tutorial
 - **Encouraging over technical** — plain language, no DeFi jargon without explanation
@@ -111,7 +111,7 @@ text-4xl font-bold      → Large amount display
 
 ## Icons (Lucide React Native)
 
-**Lucide React Native is the only icon library in StepFi-App.** No other icon libraries. Stroke-based icons only — no filled variants.
+**Lucide React Native is the only icon library in Lendify-App.** No other icon libraries. Stroke-based icons only — no filled variants.
 
 ### Import Pattern
 

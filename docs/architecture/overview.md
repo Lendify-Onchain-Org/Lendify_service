@@ -5,7 +5,7 @@
 ```
 Kotlin Mobile App
         ↓
-StepFi API (NestJS + Fastify)
+Lendify API (NestJS + Fastify)
         ↓
 Soroban Smart Contracts
         ↓

@@ -2,7 +2,7 @@
 
 ## Overview
 
-StepFi API exposes three observability endpoints:
+Lendify API exposes three observability endpoints:
 
 | Endpoint   | Purpose                       | Public | Route             |
 |------------|-------------------------------|--------|-------------------|
@@ -18,18 +18,18 @@ StepFi API exposes three observability endpoints:
 
 ## Prometheus Metrics
 
-All metrics use the `stepfi_` prefix:
+All metrics use the `lendify_` prefix:
 
 ### HTTP Request Metrics
-- `stepfi_http_requests_total` — Counter, labels: `method`, `status`, `path`
-- `stepfi_http_request_duration_seconds` — Histogram, labels: `method`, `status`, `path`
+- `lendify_http_requests_total` — Counter, labels: `method`, `status`, `path`
+- `lendify_http_request_duration_seconds` — Histogram, labels: `method`, `status`, `path`
   - Buckets: 5ms, 10ms, 25ms, 50ms, 100ms, 250ms, 500ms, 1s, 2.5s, 5s, 10s
 
 ### Application Metrics
-- `stepfi_bullmq_queue_depth` — Gauge, labels: `queue`
-- `stepfi_indexer_lag_ledgers` — Gauge (indexer ledger lag behind network tip)
-- `stepfi_horizon_up` — Gauge (1 = reachable, 0 = down)
-- `stepfi_db_pool_open` — Gauge (open database connections)
+- `lendify_bullmq_queue_depth` — Gauge, labels: `queue`
+- `lendify_indexer_lag_ledgers` — Gauge (indexer ledger lag behind network tip)
+- `lendify_horizon_up` — Gauge (1 = reachable, 0 = down)
+- `lendify_db_pool_open` — Gauge (open database connections)
 
 ### Default Node.js Metrics
 Provided by `prom-client` default metrics:
@@ -55,7 +55,7 @@ healthCheckInterval: 30   # seconds
 
 | Setting          | Value                          |
 |------------------|--------------------------------|
-| Check URL        | `https://api.stepfi.app/health`|
+| Check URL        | `https://api.lendify.app/health`|
 | Check interval   | 1 minute                       |
 | Timeout          | 10 seconds                     |
 | Retries          | 2                              |
@@ -73,12 +73,12 @@ healthCheckInterval: 30   # seconds
 
 ```yaml
 scrape_configs:
-  - job_name: 'stepfi-api'
+  - job_name: 'lendify-api'
     scrape_interval: 30s
     scrape_timeout: 10s
     metrics_path: /metrics
     static_configs:
-      - targets: ['api.stepfi.app:443']
+      - targets: ['api.lendify.app:443']
     scheme: https
     authorization:
       credentials: '<bearer-token-if-used>'
@@ -88,24 +88,24 @@ scrape_configs:
 
 ```yaml
 groups:
-  - name: stepfi
+  - name: lendify
     rules:
 
       # API down
-      - alert: StepFiAPIDown
-        expr: probe_success{job="stepfi-api"} == 0
+      - alert: LendifyAPIDown
+        expr: probe_success{job="lendify-api"} == 0
         for: 1m
         labels:
           severity: critical
         annotations:
-          summary: 'StepFi API is unreachable'
+          summary: 'Lendify API is unreachable'
 
       # HTTP 5xx rate
-      - alert: StepFiHighErrorRate
+      - alert: LendifyHighErrorRate
         expr: |
-          rate(stepfi_http_requests_total{status=~"5.."}[5m])
+          rate(lendify_http_requests_total{status=~"5.."}[5m])
           /
-          rate(stepfi_http_requests_total[5m])
+          rate(lendify_http_requests_total[5m])
           > 0.05
         for: 5m
         labels:
@@ -114,11 +114,11 @@ groups:
           summary: 'Error rate > 5% over 5m'
 
       # p99 latency
-      - alert: StepFiHighLatency
+      - alert: LendifyHighLatency
         expr: |
           histogram_quantile(
             0.99,
-            rate(stepfi_http_request_duration_seconds_bucket[5m])
+            rate(lendify_http_request_duration_seconds_bucket[5m])
           ) > 3
         for: 5m
         labels:
@@ -127,16 +127,16 @@ groups:
           summary: 'p99 latency > 3s over 5m'
 
       # Indexer lag
-      - alert: StepFiIndexerStalled
-        expr: stepfi_indexer_lag_ledgers > 500
+      - alert: LendifyIndexerStalled
+        expr: lendify_indexer_lag_ledgers > 500
         for: 2m
         labels:
           severity: warning
         annotations:
           summary: 'Indexer lag > 500 ledgers'
 
-      - alert: StepFiIndexerCritical
-        expr: stepfi_indexer_lag_ledgers > 2000
+      - alert: LendifyIndexerCritical
+        expr: lendify_indexer_lag_ledgers > 2000
         for: 1m
         labels:
           severity: critical
@@ -144,8 +144,8 @@ groups:
           summary: 'Indexer lag > 2000 ledgers — data may be stale'
 
       # BullMQ queue depth
-      - alert: StepFiQueueBacklog
-        expr: stepfi_bullmq_queue_depth > 1000
+      - alert: LendifyQueueBacklog
+        expr: lendify_bullmq_queue_depth > 1000
         for: 5m
         labels:
           severity: warning
@@ -153,8 +153,8 @@ groups:
           summary: 'BullMQ queue {{ $labels.queue }} has > 1000 waiting jobs'
 
       # Horizon down
-      - alert: StepFiHorizonDown
-        expr: stepfi_horizon_up == 0
+      - alert: LendifyHorizonDown
+        expr: lendify_horizon_up == 0
         for: 1m
         labels:
           severity: critical

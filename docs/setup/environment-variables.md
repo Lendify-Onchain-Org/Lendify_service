@@ -1,6 +1,6 @@
 # Environment Variables
 
-This document describes all environment variables used in the StepFi API.
+This document describes all environment variables used in the Lendify API.
 
 ## Overview
 
@@ -85,12 +85,12 @@ variables; a signature bound to a different environment is rejected.
 ```env
 # Base URL of the API. Used to derive the challenge envelope's `uri` field
 # (and the `domain` field when AUTH_CHALLENGE_DOMAIN is unset).
-API_URL=https://stepfi-api.onrender.com
+API_URL=https://lendify-api.onrender.com
 
 # Optional: exact host embedded in the challenge envelope's `domain` field.
 # Defaults to the host of API_URL. Must match the public origin clients
 # reach this API from.
-AUTH_CHALLENGE_DOMAIN=stepfi-api.onrender.com
+AUTH_CHALLENGE_DOMAIN=lendify-api.onrender.com
 
 # Whether the deprecated legacy raw-nonce signature scheme (signature over
 # the bare nonce hex, no domain binding) is still accepted. Defaults to true

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Security is a top priority for StepFi. This document outlines our security practices, how to report vulnerabilities, and guidelines for secure development.
+Security is a top priority for Lendify. This document outlines our security practices, how to report vulnerabilities, and guidelines for secure development.
 
 ## Supported Versions
 
@@ -19,8 +19,8 @@ Security is a top priority for StepFi. This document outlines our security pract
 
 If you discover a security vulnerability, please report it privately to:
 
-- **Email**: security@stepfi.io *(to be set up)*
-- **GitHub**: Use [GitHub Security Advisories](https://github.com/StepFi/StepFi-API/security/advisories/new)
+- **Email**: security@lendify.io *(to be set up)*
+- **GitHub**: Use [GitHub Security Advisories](https://github.com/Lendify/Lendify-API/security/advisories/new)
 
 ### What to Include
 
@@ -48,7 +48,7 @@ When reporting a vulnerability, please provide:
 
 1. **Wallet-Based Authentication**
    - Signature verification using Stellar cryptography
-   - Signatures are bound to a canonical StepFi challenge envelope (domain,
+   - Signatures are bound to a canonical Lendify challenge envelope (domain,
      URI, wallet, nonce, issued-at, expires-at, network passphrase); the
      nonce row stores a SHA-256 digest of the exact message, so a signature
      captured from any other context cannot be replayed here
@@ -299,7 +299,7 @@ Implement rate limiting to prevent abuse:
 ### Contact
 
 For security-related questions:
-- **Email**: security@stepfi.io
+- **Email**: security@lendify.io
 - **GitHub**: Security Advisories
 
 ## Compliance

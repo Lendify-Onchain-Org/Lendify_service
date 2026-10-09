@@ -1,6 +1,6 @@
 # Installation Guide
 
-This guide will help you set up the StepFi API development environment on your local machine.
+This guide will help you set up the Lendify API development environment on your local machine.
 
 ## Prerequisites
 
@@ -17,8 +17,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/StepFi/StepFi-API.git
-cd StepFi-API
+git clone https://github.com/Lendify/Lendify-API.git
+cd Lendify-API
 ```
 
 ### 2. Install Dependencies

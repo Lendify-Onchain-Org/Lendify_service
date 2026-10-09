@@ -1,12 +1,12 @@
 <div align="center">
 
-# StepFi-API
+# Lendify-API
 
-**The off-chain brain of StepFi — auth, orchestration, indexing, and background jobs for reputation-based credit on Stellar.**
+**The off-chain brain of Lendify — auth, orchestration, indexing, and background jobs for reputation-based credit on Stellar.**
 
-The NestJS backend that turns wallet signatures into sessions, builds and tracks Soroban transactions, and serves the data the StepFi clients render.
+The NestJS backend that turns wallet signatures into sessions, builds and tracks Soroban transactions, and serves the data the Lendify clients render.
 
-[![CI](https://github.com/StepFi-app/StepFi-API/actions/workflows/ci.yml/badge.svg)](https://github.com/StepFi-app/StepFi-API/actions/workflows/ci.yml)
+[![CI](https://github.com/Lendify-app/Lendify-API/actions/workflows/ci.yml/badge.svg)](https://github.com/Lendify-app/Lendify-API/actions/workflows/ci.yml)
 [![NestJS](https://img.shields.io/badge/NestJS-11-E0234E?logo=nestjs&logoColor=white)](https://nestjs.com)
 [![Fastify](https://img.shields.io/badge/Fastify-adapter-000000?logo=fastify&logoColor=white)](https://fastify.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
@@ -19,19 +19,19 @@ The NestJS backend that turns wallet signatures into sessions, builds and tracks
 
 ---
 
-## 📖 What is StepFi?
+## 📖 What is Lendify?
 
-StepFi extends small, uncollateralized loans to learners and interns based on an **on-chain reputation score** rather than assets. Sponsors fund a shared liquidity pool; borrowers draw loans sized and priced by their reputation, repay in installments, and grow their score. All money and trust live in [Soroban smart contracts](https://github.com/StepFi-app/StepFi-Contracts) on Stellar — and **StepFi-API is the service that sits between the clients and those contracts.**
+Lendify extends small, uncollateralized loans to learners and interns based on an **on-chain reputation score** rather than assets. Sponsors fund a shared liquidity pool; borrowers draw loans sized and priced by their reputation, repay in installments, and grow their score. All money and trust live in [Soroban smart contracts](https://github.com/Lendify-app/Lendify-Contracts) on Stellar — and **Lendify-API is the service that sits between the clients and those contracts.**
 
 ## 🗺️ Where it fits
 
 <div align="center">
 
-<img src="./docs/architecture.svg" alt="StepFi system architecture — StepFi-API highlighted" width="900" />
+<img src="./docs/architecture.svg" alt="Lendify system architecture — Lendify-API highlighted" width="900" />
 
 </div>
 
-The clients ([StepFi-App](https://github.com/StepFi-app/StepFi-App), [StepFi-Web](https://github.com/StepFi-app/StepFi-Web)) never talk to Stellar directly. They call this REST API over wallet-signature JWT; the API authenticates them, builds Soroban transactions, submits or hands back signed XDR, indexes on-chain state, and runs the scheduled jobs that keep everything in sync.
+The clients ([Lendify-App](https://github.com/Lendify-app/Lendify-App), [Lendify-Web](https://github.com/Lendify-app/Lendify-Web)) never talk to Stellar directly. They call this REST API over wallet-signature JWT; the API authenticates them, builds Soroban transactions, submits or hands back signed XDR, indexes on-chain state, and runs the scheduled jobs that keep everything in sync.
 
 ## ⚙️ What this service does
 
@@ -46,9 +46,9 @@ The clients ([StepFi-App](https://github.com/StepFi-app/StepFi-App), [StepFi-Web
 
 | Resource | URL |
 |----------|-----|
-| **API base** | https://stepfi-api.onrender.com/api/v1 |
-| **Swagger docs** | https://stepfi-api.onrender.com/api/v1/docs |
-| **Health check** | https://stepfi-api.onrender.com/api/v1/health |
+| **API base** | https://lendify-api.onrender.com/api/v1 |
+| **Swagger docs** | https://lendify-api.onrender.com/api/v1/docs |
+| **Health check** | https://lendify-api.onrender.com/api/v1/health |
 
 > A scheduled GitHub Action ([`health-check.yml`](.github/workflows/health-check.yml)) pings the health endpoint every 6 hours to keep the Render free-tier instance warm and acts as a heartbeat monitor — a non-200 response opens/updates a GitHub issue with the `incident` label.
 
@@ -105,8 +105,8 @@ A NestJS application (`src/`) organized into feature modules under [`src/modules
 ### Install & run
 
 ```bash
-git clone https://github.com/StepFi-app/StepFi-API.git
-cd StepFi-API
+git clone https://github.com/Lendify-app/Lendify-API.git
+cd Lendify-API
 npm install
 
 cp .env.example .env      # then fill in the values below
@@ -145,7 +145,7 @@ Copy [`.env.example`](.env.example) and set at least:
 
 ## 🔌 API surface
 
-The full, always-current contract is the **OpenAPI/Swagger UI** at [`/api/v1/docs`](https://stepfi-api.onrender.com/api/v1/docs). Endpoints are grouped by the modules above (auth, loans, reputation, liquidity, sponsors, vendors, vouching, …). See also [StepFi-Docs](https://docs.page/StepFi-app/StepFi-Docs) for protocol-level guides.
+The full, always-current contract is the **OpenAPI/Swagger UI** at [`/api/v1/docs`](https://lendify-api.onrender.com/api/v1/docs). Endpoints are grouped by the modules above (auth, loans, reputation, liquidity, sponsors, vendors, vouching, …). See also [Lendify-Docs](https://docs.page/Lendify-app/Lendify-Docs) for protocol-level guides.
 
 ## 🛡️ Security & observability
 
@@ -170,15 +170,15 @@ Development is staged from core infrastructure to a full learner-financing ecosy
 
 Keep `npm run lint:ci`, `npm run build`, and `npm test` green, and add tests for new behavior. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## 🌐 The StepFi protocol
+## 🌐 The Lendify protocol
 
 | Repo | Role |
 |------|------|
-| **StepFi-API** (this repo) | Backend — auth/JWT, orchestration, indexing, jobs |
-| [StepFi-Contracts](https://github.com/StepFi-app/StepFi-Contracts) | Soroban smart contracts (credit, reputation, liquidity) |
-| [StepFi-App](https://github.com/StepFi-app/StepFi-App) | Learner mobile client (Expo / React Native) |
-| [StepFi-Web](https://github.com/StepFi-app/StepFi-Web) | Sponsor / vendor / mentor web app |
-| [StepFi-Docs](https://github.com/StepFi-app/StepFi-Docs) | Protocol documentation |
+| **Lendify-API** (this repo) | Backend — auth/JWT, orchestration, indexing, jobs |
+| [Lendify-Contracts](https://github.com/Lendify-app/Lendify-Contracts) | Soroban smart contracts (credit, reputation, liquidity) |
+| [Lendify-App](https://github.com/Lendify-app/Lendify-App) | Learner mobile client (Expo / React Native) |
+| [Lendify-Web](https://github.com/Lendify-app/Lendify-Web) | Sponsor / vendor / mentor web app |
+| [Lendify-Docs](https://github.com/Lendify-app/Lendify-Docs) | Protocol documentation |
 
 ## 🏅 Contributors
 

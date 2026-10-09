@@ -1,5 +1,5 @@
 ---
-name: Feature template StepFi
+name: Feature template Lendify
 about: Suggest an idea for this project
 title: ''
 labels: ''
@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 ---
-name: Feature template StepFi
+name: Feature template Lendify
 about: Feature issue template
 title: ''
 labels: ''
@@ -35,7 +35,7 @@ assignees: ''
 
 ## 📚 Documentation/context for AI
 (This link never should removed)
-https://github.com/StepFi-app/StepFi-API/tree/main/docs
+https://github.com/Lendify-app/Lendify-API/tree/main/docs
 
 ---
 

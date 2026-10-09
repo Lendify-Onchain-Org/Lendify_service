@@ -13,7 +13,7 @@
 
 ```bash
 git clone <repository-url>
-cd StepFi-API
+cd Lendify-API
 ```
 
 ### 2. Install Dependencies

@@ -1,6 +1,6 @@
-# StepFi API Documentation
+# Lendify API Documentation
 
-Welcome to the StepFi API documentation. This guide provides comprehensive information about the architecture, development standards, API reference, and setup instructions.
+Welcome to the Lendify API documentation. This guide provides comprehensive information about the architecture, development standards, API reference, and setup instructions.
 
 ## 📚 Documentation Index
 
@@ -21,7 +21,7 @@ Learn about the system design, blockchain integration, and database structure.
 
 ### 🚀 Getting Started
 
-Get up and running with the StepFi API.
+Get up and running with the Lendify API.
 
 - **[Installation Guide](./setup/installation.md)**
   Step-by-step installation instructions, prerequisites, and initial setup
@@ -198,8 +198,8 @@ Documentation improvements are always welcome! If you find errors, outdated info
 
 If you can't find what you're looking for:
 
-- 🐛 [Open an Issue](https://github.com/StepFi-app/StepFi-API/issues)
-- 💬 [Join Discussions](https://github.com/StepFi-app/StepFi-API/discussions)
+- 🐛 [Open an Issue](https://github.com/Lendify-app/Lendify-API/issues)
+- 💬 [Join Discussions](https://github.com/Lendify-app/Lendify-API/discussions)
 - 📧 Contact the team
 
 ---

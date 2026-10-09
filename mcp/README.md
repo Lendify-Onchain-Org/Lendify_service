@@ -1,6 +1,6 @@
-# StepFi Docs MCP Server
+# Lendify Docs MCP Server
 
-A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that exposes StepFi API documentation to AI assistants like Claude, ChatGPT, and Cursor.
+A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that exposes Lendify API documentation to AI assistants like Claude, ChatGPT, and Cursor.
 
 ## Features
 
@@ -41,9 +41,9 @@ Add to your Claude Desktop config file:
 ```json
 {
   "mcpServers": {
-    "stepfi-docs": {
+    "lendify-docs": {
       "command": "node",
-      "args": ["/absolute/path/to/StepFi-API/mcp/dist/index.js"],
+      "args": ["/absolute/path/to/Lendify-API/mcp/dist/index.js"],
       "env": {}
     }
   }
@@ -55,9 +55,9 @@ Or using npx (after publishing):
 ```json
 {
   "mcpServers": {
-    "stepfi-docs": {
+    "lendify-docs": {
       "command": "npx",
-      "args": ["-y", "@stepfi/docs-mcp-server"],
+      "args": ["-y", "@lendify/docs-mcp-server"],
       "env": {}
     }
   }
@@ -71,7 +71,7 @@ Add to your Cursor MCP settings (`.cursor/mcp.json` in your project):
 ```json
 {
   "mcpServers": {
-    "stepfi-docs": {
+    "lendify-docs": {
       "command": "node",
       "args": ["./mcp/dist/index.js"]
     }
@@ -87,9 +87,9 @@ Or in Cursor's global settings:
 
 ```json
 {
-  "stepfi-docs": {
+  "lendify-docs": {
     "command": "node",
-    "args": ["/absolute/path/to/StepFi-API/mcp/dist/index.js"]
+    "args": ["/absolute/path/to/Lendify-API/mcp/dist/index.js"]
   }
 }
 ```
@@ -101,7 +101,7 @@ Add to your VS Code settings (`.vscode/mcp.json`):
 ```json
 {
   "servers": {
-    "stepfi-docs": {
+    "lendify-docs": {
       "type": "stdio",
       "command": "node",
       "args": ["${workspaceFolder}/mcp/dist/index.js"]
@@ -115,7 +115,7 @@ Or in your VS Code `settings.json`:
 ```json
 {
   "claude.mcpServers": {
-    "stepfi-docs": {
+    "lendify-docs": {
       "command": "node",
       "args": ["./mcp/dist/index.js"]
     }
@@ -135,7 +135,7 @@ Add to your Continue config (`~/.continue/config.json`):
         "transport": {
           "type": "stdio",
           "command": "node",
-          "args": ["/absolute/path/to/StepFi-API/mcp/dist/index.js"]
+          "args": ["/absolute/path/to/Lendify-API/mcp/dist/index.js"]
         }
       }
     ]
@@ -147,7 +147,7 @@ Add to your Continue config (`~/.continue/config.json`):
 
 Once configured, you can ask your AI assistant:
 
-- "Search the StepFi docs for authentication"
+- "Search the Lendify docs for authentication"
 - "Show me the API endpoints documentation"
 - "List all available documentation sections"
 - "Get the installation guide"
@@ -239,4 +239,4 @@ MIT - See the main project license.
 
 - [Model Context Protocol](https://modelcontextprotocol.io)
 - [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
-- [StepFi API Documentation](../docs/README.md)
+- [Lendify API Documentation](../docs/README.md)

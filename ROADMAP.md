@@ -1,8 +1,8 @@
-# StepFi Roadmap
+# Lendify Roadmap
 
 > Step into your future. Credit without banks. Progress without limits.
 
-This roadmap outlines the development phases for StepFi — a decentralized learner BNPL protocol on Stellar. Each phase builds on the previous one, moving from core infrastructure to a fully featured learner financing ecosystem.
+This roadmap outlines the development phases for Lendify — a decentralized learner BNPL protocol on Stellar. Each phase builds on the previous one, moving from core infrastructure to a fully featured learner financing ecosystem.
 
 ---
 
@@ -134,7 +134,7 @@ This roadmap outlines the development phases for StepFi — a decentralized lear
 - [ ] Production Redis with persistence
 - [ ] Monitoring dashboards (Sentry + Pino)
 - [ ] Drips Wave integration for contributor rewards
-- [ ] StepFi-App mobile release (React Native + Expo)
+- [ ] Lendify-App mobile release (React Native + Expo)
 - [ ] First learner cohort onboarded
 
 ---

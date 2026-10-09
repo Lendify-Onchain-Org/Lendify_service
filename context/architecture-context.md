@@ -1,10 +1,10 @@
-# Architecture Context — StepFi-API
+# Architecture Context — Lendify-API
 
 ## What this is
 
-NestJS backend API for the StepFi BNPL protocol. Bridges the mobile app
-(StepFi-App), web app (StepFi-Web), and 5 deployed Soroban smart contracts
-on Stellar. Live on Render at `https://stepfi-api.onrender.com/api/v1`.
+NestJS backend API for the Lendify BNPL protocol. Bridges the mobile app
+(Lendify-App), web app (Lendify-Web), and 5 deployed Soroban smart contracts
+on Stellar. Live on Render at `https://lendify-api.onrender.com/api/v1`.
 
 The API is the only layer that talks to Soroban RPC / Horizon. Clients never
 call the chain directly — they receive unsigned XDR from this API, sign it
@@ -84,7 +84,7 @@ Wallet address → `POST /auth/nonce` → client signs nonce with wallet →
 `POST /auth/verify` → JWT (access + refresh) issued.
 `POST /auth/refresh` rotates tokens.
 
-- Every accepted signature signs the canonical StepFi challenge envelope
+- Every accepted signature signs the canonical Lendify challenge envelope
   (domain, URI, wallet, nonce, issued-at, expires-at, network passphrase);
   the nonce row stores a SHA-256 digest of the exact message, so verification
   only ever runs against the issued challenge (#118)

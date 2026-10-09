@@ -1,4 +1,4 @@
-# StepFi Contributor Issues
+# Lendify Contributor Issues
 
 35 detailed issues spanning Contracts (Rust/Soroban), API (NestJS), Mobile (Expo/React Native), and DevOps.
 
@@ -7,7 +7,7 @@ Each issue is self-contained and ready for a contributor to pick up. Read the li
 ---
 
 ## Issue 1: Add dedicated tests for `repay_installment()`
-**Repo:** StepFi-app/StepFi-Contracts
+**Repo:** Lendify-app/Lendify-Contracts
 **Labels:** contracts, testing, hard
 **Difficulty:** hard
 
@@ -15,7 +15,7 @@ Each issue is self-contained and ready for a contributor to pick up. Read the li
 The `repay_installment()` function in `contracts/creditline-contract/src/lib.rs` lacks isolated unit tests. The only existing coverage is incidental via end-to-end flow tests, leaving error paths (double-pay, out-of-bounds, unauthorized, zero-amount) untested. Without these, regressions in repayment logic can silently break borrower balances.
 
 ### Context
-Repayment correctness is the most safety-critical operation in StepFi — a bug here can either lock learners out of repaying or allow them to pay twice. Sponsors lose trust if installments are mis-accounted, and the reputation contract derives scoring from these calls. This must be airtight before mainnet.
+Repayment correctness is the most safety-critical operation in Lendify — a bug here can either lock learners out of repaying or allow them to pay twice. Sponsors lose trust if installments are mis-accounted, and the reputation contract derives scoring from these calls. This must be airtight before mainnet.
 
 ### Before Starting
 Read these context files first:
@@ -56,7 +56,7 @@ Read these context files first:
 ---
 
 ## Issue 2: Implement `approve_loan()` — Pending to Active transition
-**Repo:** StepFi-app/StepFi-Contracts
+**Repo:** Lendify-app/Lendify-Contracts
 **Labels:** contracts, feature, medium
 **Difficulty:** medium
 
@@ -108,7 +108,7 @@ Read these context files first:
 ---
 
 ## Issue 3: Add per-installment late fee accrual
-**Repo:** StepFi-app/StepFi-Contracts
+**Repo:** Lendify-app/Lendify-Contracts
 **Labels:** contracts, feature, hard
 **Difficulty:** hard
 
@@ -160,7 +160,7 @@ Read these context files first:
 ---
 
 ## Issue 4: Add mentor vouching contract
-**Repo:** StepFi-app/StepFi-Contracts
+**Repo:** Lendify-app/Lendify-Contracts
 **Labels:** contracts, feature, hard
 **Difficulty:** hard
 
@@ -168,7 +168,7 @@ Read these context files first:
 There is no on-chain mechanism for verified mentors to vouch for learners. The reputation contract currently has no off-board signal for new wallets with zero loan history, so first-time learners face artificially high interest rates with no path to bootstrap trust.
 
 ### Context
-Mentor vouching is StepFi's cold-start fix. A verified educator or community lead can stake their own reputation behind a learner, unlocking lower-rate credit for previously unscored users. This is the protocol's social capital layer.
+Mentor vouching is Lendify's cold-start fix. A verified educator or community lead can stake their own reputation behind a learner, unlocking lower-rate credit for previously unscored users. This is the protocol's social capital layer.
 
 ### Before Starting
 Read these context files first:
@@ -218,7 +218,7 @@ Read these context files first:
 ---
 
 ## Issue 5: Add `upgrade()` function to all 5 contracts
-**Repo:** StepFi-app/StepFi-Contracts
+**Repo:** Lendify-app/Lendify-Contracts
 **Labels:** contracts, infra, medium
 **Difficulty:** medium
 
@@ -279,7 +279,7 @@ Read these context files first:
 ---
 
 ## Issue 6: Harden `storage.rs` `expect()` panics to typed errors
-**Repo:** StepFi-app/StepFi-Contracts
+**Repo:** Lendify-app/Lendify-Contracts
 **Labels:** contracts, refactor, medium
 **Difficulty:** medium
 
@@ -330,7 +330,7 @@ Read these context files first:
 ---
 
 ## Issue 7: Add initialize check to all contract functions
-**Repo:** StepFi-app/StepFi-Contracts
+**Repo:** Lendify-app/Lendify-Contracts
 **Labels:** contracts, safety, medium
 **Difficulty:** medium
 
@@ -379,7 +379,7 @@ Read these context files first:
 ---
 
 ## Issue 8: Add TTL `extend_ttl()` to liquidity-pool and vendor-registry contracts
-**Repo:** StepFi-app/StepFi-Contracts
+**Repo:** Lendify-app/Lendify-Contracts
 **Labels:** contracts, safety, medium
 **Difficulty:** medium
 
@@ -432,7 +432,7 @@ Read these context files first:
 ---
 
 ## Issue 9: Wire `LiquidityContractClient` into `LiquidityService`
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, blockchain, hard
 **Difficulty:** hard
 
@@ -484,7 +484,7 @@ Read these context files first:
 ---
 
 ## Issue 10: Implement `POST /vendors` admin endpoint
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, feature, medium
 **Difficulty:** medium
 
@@ -492,7 +492,7 @@ Read these context files first:
 The `VendorsModule` has a repository and service skeleton but exposes no creation endpoint. The mobile app's loan wizard relies on a vendor list, but admins currently have no API path to register a new vendor — vendor data has to be inserted directly via SQL.
 
 ### Context
-Vendors are the only entities a learner can transact with — they're the "merchants" of StepFi. Onboarding the first 10–20 schools and bootcamps requires admins to be able to add vendors through Postman or the admin tool, not psql.
+Vendors are the only entities a learner can transact with — they're the "merchants" of Lendify. Onboarding the first 10–20 schools and bootcamps requires admins to be able to add vendors through Postman or the admin tool, not psql.
 
 ### Before Starting
 Read these context files first:
@@ -536,7 +536,7 @@ Read these context files first:
 ---
 
 ## Issue 11: Add learner profile creation on first login
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, feature, medium
 **Difficulty:** medium
 
@@ -588,7 +588,7 @@ Read these context files first:
 ---
 
 ## Issue 12: Add unit tests for `AuthService`
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, testing, good first issue
 **Difficulty:** good first issue
 
@@ -634,7 +634,7 @@ Read these context files first:
 ---
 
 ## Issue 13: Add unit tests for `LearnersService`
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, testing, good first issue
 **Difficulty:** good first issue
 
@@ -680,7 +680,7 @@ Read these context files first:
 ---
 
 ## Issue 14: Add unit tests for `VendorsService`
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, testing, good first issue
 **Difficulty:** good first issue
 
@@ -726,7 +726,7 @@ Read these context files first:
 ---
 
 ## Issue 15: Add unit tests for `VouchingService`
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, testing, good first issue
 **Difficulty:** good first issue
 
@@ -772,7 +772,7 @@ Read these context files first:
 ---
 
 ## Issue 16: Add unit tests for `SponsorsService`
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, testing, good first issue
 **Difficulty:** good first issue
 
@@ -818,7 +818,7 @@ Read these context files first:
 ---
 
 ## Issue 17: Implement vouch expiry cleanup BullMQ job
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, jobs, medium
 **Difficulty:** medium
 
@@ -868,7 +868,7 @@ Read these context files first:
 ---
 
 ## Issue 18: Add `POST /auth/refresh` endpoint tests
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, testing, good first issue
 **Difficulty:** good first issue
 
@@ -915,7 +915,7 @@ Read these context files first:
 ---
 
 ## Issue 19: Add reputation score caching with Redis
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, performance, medium
 **Difficulty:** medium
 
@@ -965,7 +965,7 @@ Read these context files first:
 ---
 
 ## Issue 20: Add Sentry error tracking to all modules
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, observability, good first issue
 **Difficulty:** good first issue
 
@@ -1016,7 +1016,7 @@ Read these context files first:
 ---
 
 ## Issue 21: Add rate limiting to auth endpoints
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, security, medium
 **Difficulty:** medium
 
@@ -1064,7 +1064,7 @@ Read these context files first:
 ---
 
 ## Issue 22: Add pagination to `GET /loans` endpoint
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, performance, good first issue
 **Difficulty:** good first issue
 
@@ -1113,12 +1113,12 @@ Read these context files first:
 ---
 
 ## Issue 23: Implement `stellar.toml` endpoint
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** backend, integrations, good first issue
 **Difficulty:** good first issue
 
 ### Problem
-There is no `GET /.well-known/stellar.toml` endpoint. Wallets and indexers that auto-discover Stellar projects (Lobstr directory, StellarExpert) cannot find StepFi's federation file from the API domain.
+There is no `GET /.well-known/stellar.toml` endpoint. Wallets and indexers that auto-discover Stellar projects (Lobstr directory, StellarExpert) cannot find Lendify's federation file from the API domain.
 
 ### Context
 `stellar.toml` is the discoverability standard for Stellar projects — it advertises org info, contract IDs, and curated asset metadata. Wallets read it to display the project name and verify contract addresses.
@@ -1161,7 +1161,7 @@ Read these context files first:
 ---
 
 ## Issue 24: Build WalletConnect v2 integration
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** mobile, blockchain, hard
 **Difficulty:** hard
 
@@ -1169,7 +1169,7 @@ Read these context files first:
 The mobile app has no wallet integration. Users cannot connect Lobstr, xBull, or Freighter to sign transactions. Every flow that requires signing (loan apply, repay, deposit) is currently dead-end.
 
 ### Context
-WalletConnect v2 is the Stellar-wallet standard. Without it, the entire transactional surface of StepFi-App is non-functional. This is the gate to running any e2e flow.
+WalletConnect v2 is the Stellar-wallet standard. Without it, the entire transactional surface of Lendify-App is non-functional. This is the gate to running any e2e flow.
 
 ### Before Starting
 Read these context files first:
@@ -1214,15 +1214,15 @@ Read these context files first:
 ---
 
 ## Issue 25: Build sign-in screen with sliding onboarding
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** mobile, ui, medium
 **Difficulty:** medium
 
 ### Problem
-`app/(auth)/sign-in.tsx` is a placeholder. There is no onboarding flow introducing StepFi's value proposition, features, or reputation tiers before asking the user to connect a wallet — leading to immediate drop-off.
+`app/(auth)/sign-in.tsx` is a placeholder. There is no onboarding flow introducing Lendify's value proposition, features, or reputation tiers before asking the user to connect a wallet — leading to immediate drop-off.
 
 ### Context
-First-time users have no context for "connect wallet" — they need a 30-second onboarding explaining what StepFi does and why they should trust it. The sliding 4-step pattern matches industry norms (Robinhood, Cash App).
+First-time users have no context for "connect wallet" — they need a 30-second onboarding explaining what Lendify does and why they should trust it. The sliding 4-step pattern matches industry norms (Robinhood, Cash App).
 
 ### Before Starting
 Read these context files first:
@@ -1265,7 +1265,7 @@ Read these context files first:
 ---
 
 ## Issue 26: Build role selection screen
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** mobile, ui, good first issue
 **Difficulty:** good first issue
 
@@ -1315,7 +1315,7 @@ Read these context files first:
 ---
 
 ## Issue 27: Build learner home dashboard screen
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** mobile, ui, hard
 **Difficulty:** hard
 
@@ -1370,7 +1370,7 @@ Read these context files first:
 ---
 
 ## Issue 28: Build loan application wizard
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** mobile, ui, hard
 **Difficulty:** hard
 
@@ -1425,7 +1425,7 @@ Read these context files first:
 ---
 
 ## Issue 29: Build reputation score screen
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** mobile, ui, medium
 **Difficulty:** medium
 
@@ -1478,7 +1478,7 @@ Read these context files first:
 ---
 
 ## Issue 30: Build settings screen with role switcher
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** mobile, ui, medium
 **Difficulty:** medium
 
@@ -1531,7 +1531,7 @@ Read these context files first:
 ---
 
 ## Issue 31: Build sponsor portfolio screen
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** mobile, ui, medium
 **Difficulty:** medium
 
@@ -1584,13 +1584,13 @@ Read these context files first:
 
 ---
 
-## Issue 32: Add GitHub Actions CI for StepFi-API
-**Repo:** StepFi-app/StepFi-API
+## Issue 32: Add GitHub Actions CI for Lendify-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** devops, ci, good first issue
 **Difficulty:** good first issue
 
 ### Problem
-The StepFi-API repo has no GitHub Actions workflow. PRs can merge with broken TypeScript builds or failing tests because nothing enforces them.
+The Lendify-API repo has no GitHub Actions workflow. PRs can merge with broken TypeScript builds or failing tests because nothing enforces them.
 
 ### Context
 Open-source contributors will submit PRs blind. CI is the gate that prevents broken builds from landing in main. Without it, the maintainer has to manually run `npm run build` on every PR.
@@ -1628,8 +1628,8 @@ Read these context files first:
 
 ---
 
-## Issue 33: Add GitHub Actions CI for StepFi-App
-**Repo:** StepFi-app/StepFi-App
+## Issue 33: Add GitHub Actions CI for Lendify-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** devops, ci, good first issue
 **Difficulty:** good first issue
 
@@ -1646,7 +1646,7 @@ Read these context files first:
 - context/progress-tracker.md
 
 ### What To Build
-1. Create `.github/workflows/ci.yml` in StepFi-App.
+1. Create `.github/workflows/ci.yml` in Lendify-App.
 2. Triggers: `pull_request` and `push` to main.
 3. Job `web-build`: ubuntu-latest, Node 20, cache npm.
 4. Steps: checkout → setup-node → `npm ci` → `npx expo export --platform web`.
@@ -1673,7 +1673,7 @@ Read these context files first:
 ---
 
 ## Issue 34: Add EAS production build workflow
-**Repo:** StepFi-app/StepFi-App
+**Repo:** Lendify-app/Lendify-App
 **Labels:** devops, ci, medium
 **Difficulty:** medium
 
@@ -1719,12 +1719,12 @@ Read these context files first:
 ---
 
 ## Issue 35: Add Render deployment health check workflow
-**Repo:** StepFi-app/StepFi-API
+**Repo:** Lendify-app/Lendify-API
 **Labels:** devops, observability, good first issue
 **Difficulty:** good first issue
 
 ### Problem
-The Render free-tier instance hosting StepFi-API spins down after inactivity. First request after sleep takes 30+ seconds, and outages are silent — no one knows the service is down until a user complains.
+The Render free-tier instance hosting Lendify-API spins down after inactivity. First request after sleep takes 30+ seconds, and outages are silent — no one knows the service is down until a user complains.
 
 ### Context
 A simple periodic ping keeps the instance warm and acts as a heartbeat monitor. If the ping fails, a GitHub issue is auto-created so the maintainer sees the outage even without external monitoring tools.
@@ -1738,7 +1738,7 @@ Read these context files first:
 ### What To Build
 1. Create `.github/workflows/health-check.yml`.
 2. Trigger: `schedule: cron '0 */6 * * *'` (every 6 hours) + `workflow_dispatch` (manual).
-3. Step 1: `curl -sf -o /dev/null -w "%{http_code}" https://stepfi-api.onrender.com/api/v1/health` — capture status.
+3. Step 1: `curl -sf -o /dev/null -w "%{http_code}" https://lendify-api.onrender.com/api/v1/health` — capture status.
 4. Step 2: if status != 200, use `actions/github-script` to create an issue titled "Health check failed at {timestamp}" with the HTTP status in the body. Include label `incident`.
 5. Step 3: dedupe — if an open `incident` issue already exists, comment on it instead of creating a duplicate.
 6. Document the ping endpoint in README.

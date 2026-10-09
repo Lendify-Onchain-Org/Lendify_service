@@ -1,4 +1,4 @@
-# Progress Tracker — StepFi-API
+# Progress Tracker — Lendify-API
 
 Format: date, commit hash, what changed, why.
 Update this file in every PR that changes functionality (not needed for
@@ -66,7 +66,7 @@ pure chore/docs commits). Direct pushes to main must also be logged here.
     for the status checker to reconcile, since the transaction may still be
     in flight.
   - Resolved the committed merge-conflict markers in this file (stale
-    StepFi-Contracts content from the wrong repo removed; StepFi-API history
+    Lendify-Contracts content from the wrong repo removed; Lendify-API history
     retained).
 
 ## 2026-08-26
@@ -220,7 +220,7 @@ pure chore/docs commits). Direct pushes to main must also be logged here.
 
 ---
 
-> Note (2026-07-16): this file previously contained StepFi-Contracts
-> content copied from the wrong repo. Replaced with real StepFi-API
+> Note (2026-07-16): this file previously contained Lendify-Contracts
+> content copied from the wrong repo. Replaced with real Lendify-API
 > history backfilled from `git log`. Entries older than 2026-06-18 are
 > in git history but were never tracked here.

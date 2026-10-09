@@ -1,8 +1,8 @@
-# StepFi
+# Lendify
 
 ## Overview
 
-StepFi is a decentralized Buy Now Pay Later (BNPL) protocol on the Stellar network, designed specifically for learners, interns, and early-career developers in emerging markets. Users finance laptops, courses, and dev tools, and repay in small installments — powered by Soroban smart contracts, with no banks and no passwords.
+Lendify is a decentralized Buy Now Pay Later (BNPL) protocol on the Stellar network, designed specifically for learners, interns, and early-career developers in emerging markets. Users finance laptops, courses, and dev tools, and repay in small installments — powered by Soroban smart contracts, with no banks and no passwords.
 
 ## Tagline
 
@@ -10,13 +10,13 @@ StepFi is a decentralized Buy Now Pay Later (BNPL) protocol on the Stellar netwo
 
 ## Repository Structure
 
-StepFi is split across three repositories under the `StepFi-app` GitHub organization:
+Lendify is split across three repositories under the `Lendify-app` GitHub organization:
 
 | Repo | Stack | Role |
 |---|---|---|
-| `StepFi-API` | NestJS + Fastify + TypeScript | Off-chain orchestration layer — auth, loans, reputation, jobs |
-| `StepFi-Contracts` | Rust + Soroban SDK | On-chain smart contracts — credit line, reputation, liquidity pool, vendor registry |
-| `StepFi-App` | React Native + Expo | Mobile application — learner and sponsor interfaces |
+| `Lendify-API` | NestJS + Fastify + TypeScript | Off-chain orchestration layer — auth, loans, reputation, jobs |
+| `Lendify-Contracts` | Rust + Soroban SDK | On-chain smart contracts — credit line, reputation, liquidity pool, vendor registry |
+| `Lendify-App` | React Native + Expo | Mobile application — learner and sponsor interfaces |
 
 ## Goals
 
@@ -29,7 +29,7 @@ StepFi is split across three repositories under the `StepFi-app` GitHub organiza
 
 ## Core User Flow — Learner
 
-1. Learner downloads StepFi App and connects their Stellar wallet.
+1. Learner downloads Lendify App and connects their Stellar wallet.
 2. Learner completes their learner profile (school, program, income type).
 3. Learner views their on-chain reputation score and credit limit.
 4. Learner browses verified vendors (bootcamps, electronics, online courses).
@@ -128,7 +128,7 @@ StepFi is split across three repositories under the `StepFi-app` GitHub organiza
 4. A mentor can vouch for a learner and the credit limit increases.
 5. Background jobs index on-chain events and deliver payment reminders.
 6. All Soroban contracts are deployed on testnet with verified contract IDs.
-7. StepFi-API is live on Render with a public health check and Swagger UI.
-8. StepFi-App has a working Expo preview build.
+7. Lendify-API is live on Render with a public health check and Swagger UI.
+8. Lendify-App has a working Expo preview build.
 9. The project has 20+ well-labeled GitHub issues ready for contributors.
 10. The project is submitted to Stellar Drips Wave with live URLs.

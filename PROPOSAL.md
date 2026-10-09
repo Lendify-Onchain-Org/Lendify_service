@@ -1,8 +1,8 @@
-# StepFi — Project Proposal
+# Lendify — Project Proposal
 
 ## 🚀 Step into your future. Credit without banks. Progress without limits..
 
-StepFi is an open-source decentralized BNPL (Buy Now Pay Later) protocol built on the Stellar network, designed specifically for learners, interns, and early-career developers in emerging markets.
+Lendify is an open-source decentralized BNPL (Buy Now Pay Later) protocol built on the Stellar network, designed specifically for learners, interns, and early-career developers in emerging markets.
 
 ## The Problem
 
@@ -10,7 +10,7 @@ Students and interns across Africa and beyond can't afford upfront costs for lap
 
 ## The Solution
 
-StepFi lets users finance what they need and repay in small installments, powered by Soroban smart contracts on Stellar. No banks. No passwords. Just your wallet.
+Lendify lets users finance what they need and repay in small installments, powered by Soroban smart contracts on Stellar. No banks. No passwords. Just your wallet.
 
 ## How It Works
 
@@ -27,15 +27,15 @@ NestJS + Fastify · Soroban Smart Contracts (Rust) · Supabase · Redis · BullM
 
 ## Contributing
 
-We welcome contributors across backend, smart contracts, frontend, documentation, and testing. Whether you're a Soroban dev, a NestJS engineer, or just getting started in open source — there's a place for you in StepFi.
+We welcome contributors across backend, smart contracts, frontend, documentation, and testing. Whether you're a Soroban dev, a NestJS engineer, or just getting started in open source — there's a place for you in Lendify.
 
-Check out our [open issues](https://github.com/StepFi-app/StepFi-API/issues) to get started.
+Check out our [open issues](https://github.com/Lendify-app/Lendify-API/issues) to get started.
 
 ## Links
 
-- GitHub: https://github.com/StepFi-app
-- Live API: https://stepfi-api.onrender.com/api/v1
-- API Docs: https://stepfi-api.onrender.com/api/v1/docs
+- GitHub: https://github.com/Lendify-app
+- Live API: https://lendify-api.onrender.com/api/v1
+- API Docs: https://lendify-api.onrender.com/api/v1/docs
 
 ---
 
