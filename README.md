@@ -2,6 +2,8 @@
 
 # Lendify-API
 
+<img src="./docs/logo.jpg" alt="Lendify Logo" width="200" style="margin: 20px 0" />
+
 **The off-chain brain of Lendify — auth, orchestration, indexing, and background jobs for reputation-based credit on Stellar.**
 
 The NestJS backend that turns wallet signatures into sessions, builds and tracks Soroban transactions, and serves the data the Lendify clients render.
